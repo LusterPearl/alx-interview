@@ -3,6 +3,15 @@
 Pascal triangle list of lists of integers
 """
 def pascal_triangle(n):
+    """ 
+    Generate the first n rows of Pascal's Triangle.
+
+    Args:
+    - n: An integer specifying the number of rows to generate.
+
+    Returns:
+    - A list of lists of integers representing Pascal's Triangle.
+    """
     if n <= 0:
         return []
 
