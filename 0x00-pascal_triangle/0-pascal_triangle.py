@@ -2,8 +2,10 @@
 """
 Pascal triangle list of lists of integers
 """
+
+
 def pascal_triangle(n):
-    """ 
+    """
     Generate the first n rows of Pascal's Triangle.
 
     Args:
