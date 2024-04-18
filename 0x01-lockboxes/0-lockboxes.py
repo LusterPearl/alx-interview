@@ -1,37 +1,30 @@
 #!/usr/bin/python3
-"""Locked boxes import List """
+"""
+Module for Lockboxes
+"""
 
 
-def canUnlockAll(boxes: List[List[int]]) -> bool:
-    """
-    Determines if all the boxes can be opened.
-
-    Args:
-    boxes: A list of lists where each inner list represents a box.
-
-    Returns:
-        True if all boxes can be opened, False otherwise.
-    """
-    n = len(boxes)
-    if n == 0:
+def canUnlockAll(boxes):
+    """Determines if all the boxes can be opened."""
+    if not boxes:
         return False
 
-    """Initialize a set to keep track of visited boxes"""
-    visited = set()
-    visited.add(0)
+    # Initialize sets to keep track of opened boxes and keys
+    opened_boxes = {0}
+    keys = set(boxes[0])
 
-    """Initialize a queue to perform BFS """
-    queue = [0]
+    # Iterate through keys until no new key can be added to the set
+    while keys:
+        new_keys = set()
+        for key in keys:
+            if key < len(boxes) and key not in opened_boxes:
+                opened_boxes.add(key)
+                new_keys.update(boxes[key])
 
-    """BFS algorithm to traverse through boxes and keys"""
-    while queue:
-        current_box = queue.pop(0)
+        # If no new key is found, break the loop
+        if len(opened_boxes) == len(boxes):
+            return True
 
-        """ Check all the keys in the current box """
-        for key in boxes[current_box]:
-            if key < n and key not in visited:
-                visited.add(key)
-                queue.append(key)
+        keys = new_keys.difference(opened_boxes)
 
-    """Check if all boxes have been visited"""
-    return len(visited) == n
+    return len(opened_boxes) == len(boxes)
