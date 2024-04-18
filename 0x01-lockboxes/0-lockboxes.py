@@ -26,5 +26,4 @@ def canUnlockAll(boxes):
             return True
 
         keys = new_keys.difference(opened_boxes)
-
     return len(opened_boxes) == len(boxes)
