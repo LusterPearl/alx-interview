@@ -9,11 +9,11 @@ def canUnlockAll(boxes):
     if not boxes:
         return False
 
-    # Initialize sets to keep track of opened boxes and keys
+    """Initialize sets to keep track of opened boxes and keys"""
     opened_boxes = {0}
     keys = set(boxes[0])
 
-    # Iterate through keys until no new key can be added to the set
+    """Iterate through keys until no new key can be added to the set"""
     while keys:
         new_keys = set()
         for key in keys:
@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
                 opened_boxes.add(key)
                 new_keys.update(boxes[key])
 
-        # If no new key is found, break the loop
+        """If no new key is found, break the loop"""
         if len(opened_boxes) == len(boxes):
             return True
 
