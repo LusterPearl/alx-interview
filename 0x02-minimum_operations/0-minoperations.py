@@ -17,13 +17,13 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    # Initialize the number of operations needed to reach each position with 0
+    """Initialize the number of operations needed to reach each position with 0"""
     operations = [0] * (n + 1)
 
     for i in range(2, n + 1):
-        operations[i] = operations[i - 1] + 1  # Default to pasting one character
+        operations[i] = operations[i - 1] + 1
 
-        # Check if we can optimize by copying all and pasting
+        """Check if we can optimize by copying all and pasting"""
         for j in range(2, i):
             if i % j == 0:
                 operations[i] = min(operations[i], operations[j] + i // j)
