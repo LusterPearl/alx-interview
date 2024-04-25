@@ -28,8 +28,3 @@ def minOperations(n):
         divisor += 1
 
     return operations
-
-
-# Example usage
-print("Min number of operations to reach 4 characters:", minOperations(4))
-print("Min number of operations to reach 12 characters:", minOperations(12))
