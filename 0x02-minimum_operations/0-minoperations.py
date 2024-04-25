@@ -6,13 +6,15 @@ Minimum Operations
 
 def minOperations(n):
     """
-    Calculates the fewest number of operations needed to result in exactly n H characters in the file.
+    Calculates the fewest number of operations needed to
+    result in exactly n H characters in the file.
 
     Args:
         n (int): The target number of H characters.
 
     Returns:
-        int: The minimum number of operations needed. If n is impossible to achieve, return 0.
+        int: The minimum number of operations needeed.
+        If n is impossible to achieve, return 0.
     """
     if n <= 1:
         return 0
@@ -24,5 +26,10 @@ def minOperations(n):
             operations += divisor
             n /= divisor
         divisor += 1
-        
-        return operations
+
+    return operations
+
+
+# Example usage
+print("Min number of operations to reach 4 characters:", minOperations(4))
+print("Min number of operations to reach 12 characters:", minOperations(12))
