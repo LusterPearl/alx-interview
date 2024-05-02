@@ -8,9 +8,9 @@ def parse_line(line):
         and file size.
     """
     pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' \
-          r' - \[(.*?)\]' \
-          r' "GET \/projects\/260 HTTP\/1\.1"' \
-          r' (\d{3}) (\d+)'
+              r' - \[(.*?)\]' \
+              r' "GET \/projects\/260 HTTP\/1\.1"' \
+              r' (\d{3}) (\d+)'
     match = re.match(pattern, line)
     if match:
         ip_address = match.group(1)
@@ -19,6 +19,7 @@ def parse_line(line):
         return ip_address, status_code, file_size
     return None, None, None
 
+
 def print_stats(total_size, status_codes):
     """Print total file size and number of lines
         for each status code."""
@@ -26,17 +27,18 @@ def print_stats(total_size, status_codes):
     for code, count in sorted(status_codes.items()):
         print(f'{code}: {count}')
 
+
 def main():
     total_size = 0
     status_codes = {
-    200: 0,
-    301: 0,
-    400: 0,
-    401: 0,
-    403: 0,
-    404: 0,
-    405: 0,
-    500: 0
+                    200: 0,
+                    301: 0,
+                    400: 0,
+                    401: 0,
+                    403: 0,
+                    404: 0,
+                    405: 0,
+                    500: 0
     }
     line_count = 0
 
