@@ -38,7 +38,7 @@ def parse_log():
     try:
         for line in fileinput.input():
             data = line.split()
-            if len(data) < 2:
+            if len(data) < 10:
                 continue
             file_size += int(data[-1])
             status = data[-2]
@@ -47,6 +47,12 @@ def parse_log():
             current_line += 1
             if current_line % 10 == 0:
                 print_logs(file_size, status_codes)
+                file_size = 0
+                status_codes = {code: 0 for code in status_codes}
     except KeyboardInterrupt:
         pass
     print_logs(file_size, status_codes)
+
+
+if __name__ == "__main__":
+    parse_log()
