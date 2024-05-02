@@ -17,20 +17,20 @@ def print_logs(file_size: int, status_codes: dict):
     print("File size:", file_size)
     for code, count in sorted(status_codes.items()):
         if count > 0:
-             print(f"{code}: {count}")
+            print(f"{code}: {count}")
 
 
 def parse_log():
     """Print total file size and number of lines"""
     file_size = 0
     status_codes = {
-                    "200": 0, 
-                    "301": 0, 
-                    "400": 0, 
+                    "200": 0,
+                    "301": 0,
+                    "400": 0,
                     "401": 0,
-                    "403": 0, 
-                    "404": 0, 
-                    "405": 0, 
+                    "403": 0,
+                    "404": 0,
+                    "405": 0,
                     "500": 0
     }
     current_line = 0
