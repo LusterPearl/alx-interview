@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Parse a log line and extract"""
 import sys
 import re
 
@@ -29,6 +30,7 @@ def print_stats(total_size, status_codes):
 
 
 def main():
+    """Read log lines from stdin, compute"""
     total_size = 0
     status_codes = {
                     200: 0,
