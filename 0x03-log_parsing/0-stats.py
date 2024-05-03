@@ -50,7 +50,3 @@ def parse_log():
     except KeyboardInterrupt:
         pass
     print_logs(file_size, status_codes)
-
-
-if __name__ == "__main__":
-    parse_log()
