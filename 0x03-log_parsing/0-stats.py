@@ -47,8 +47,6 @@ def parse_log():
             current_line += 1
             if current_line % 10 == 0:
                 print_logs(file_size, status_codes)
-                file_size = 0
-                status_codes = {code: 0 for code in status_codes}
     except KeyboardInterrupt:
         pass
     print_logs(file_size, status_codes)
