@@ -14,22 +14,20 @@ def validUTF8(data):
     Returns:
         bool: True if data is a valid UTF-8 encoding, else False.
     """
-    bytes_to_check = 0
-
+    num_bytes = 0
+    
     for num in data:
-        if bytes_to_check == 0:
-            if num >> 7 == 0:
+        if num_bytes == 0:
+            if (num >> 7) == 0b0:
                 continue
-            elif num >> 5 == 0b110:
-                bytes_to_check = 1
-            elif num >> 4 == 0b1110:
-                bytes_to_check = 2
-            elif num >> 3 == 0b11110:
-                bytes_to_check = 3
-            else:
+            while (num >> (7 - num_bytes)) & 1:
+                num_bytes += 1
+            if num_bytes == 0 or num_bytes > 4:
                 return False
+            num_bytes = max(num_bytes - 1, 0)
         else:
-            if num >> 6 != 0b10:
+            if (num >> 6) != 0b10:
                 return False
-            bytes_to_check -= 1
-            return bytes_to_check == 0
+            num_bytes -= 1
+            
+            return num_bytes == 0
