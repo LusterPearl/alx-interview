@@ -14,6 +14,7 @@ def validUTF8(data):
     Returns:
         bool: True if data is a valid UTF-8 encoding, else False.
     """
+    def validUTF8(data):
     num_bytes = 0
     
     for num in data:
@@ -29,5 +30,5 @@ def validUTF8(data):
             if (num >> 6) != 0b10:
                 return False
             num_bytes -= 1
-            
-            return num_bytes == 0
+
+    return num_bytes == 0
