@@ -14,10 +14,12 @@ Where N is the size of the chessboard
 
 import sys
 
+
 def print_usage_and_exit():
     """Print usage message and exit with status 1."""
     print("Usage: nqueens N")
     sys.exit(1)
+
 
 def is_safe(board, row, col):
     """
@@ -45,6 +47,7 @@ def is_safe(board, row, col):
             return False
     return True
 
+
 def solve_nqueens(board, col):
     """
     Use backtracking to find all solutions for the N queens problem.
@@ -70,6 +73,7 @@ def solve_nqueens(board, col):
 
     return solutions
 
+
 def main():
     """Main function to handle command-line arguments"""
     if len(sys.argv) != 2:
@@ -89,6 +93,7 @@ def main():
     solutions = solve_nqueens(board, 0)
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     main()
