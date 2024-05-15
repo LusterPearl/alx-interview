@@ -68,7 +68,8 @@ def solve_nqueens(board, col):
         if is_safe(board, i, col):
             board[i][col] = 1
             for solution in solve_nqueens(board, col + 1):
-                solutions.append(solution)
+                soluti
+                ons.append(solution)
             board[i][col] = 0
 
     return solutions
