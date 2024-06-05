@@ -4,6 +4,7 @@ Module 0-making_change
 Contains a function to determine.
 """
 
+
 def makeChange(coins, total):
     """
     Determine the fewest number of coins.
