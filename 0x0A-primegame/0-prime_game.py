@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
 Prime Game Module
-Maria and Ben are playinginvolving prime numbers. 
+Maria and Ben are playinginvolving prime.
 Given a set of consecutive integers,
-and removing that number and its multiples from the set 
+and removing that number and its multiples from
 cannot make a move loses the game.
 
-This module determines the winner of each game 
+This module determines the winner
 the player who won the most rounds.
 """
 
@@ -24,6 +24,7 @@ def sieve(n):
 
     return [i for i, prime in enumerate(is_prime) if prime]
 
+
 def prime_count(n):
     """Return the number of primes less than or equal to n."""
     primes = sieve(n)
@@ -35,6 +36,7 @@ def prime_count(n):
             count[i] += 1
 
     return count
+
 
 def isWinner(x, nums):
     """
